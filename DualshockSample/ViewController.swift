@@ -42,7 +42,7 @@ class ViewController: UITableViewController {
         if leftThumbstick.down.isPressed {
             scrollDown()
         }
-        
+
         let rightThumbstick = extendedGamepad.rightThumbstick
         movePointer(x: rightThumbstick.xAxis.value, y: rightThumbstick.yAxis.value)
     }
@@ -156,7 +156,7 @@ private extension ViewController {
                 return
             }
         }
-        gamepad.buttonMenu.valueChangedHandler = { [weak self] (input, value, isPressed) in
+        gamepad.buttonMenu.pressedChangedHandler = { [weak self] (input, value, isPressed) in
             guard isPressed else { return }
             self?.showResetConfirmation()
         }
